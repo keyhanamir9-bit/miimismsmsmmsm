@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>💖 برای انوشه 💖</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Tahoma,sans-serif;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(-45deg,#ff6b9d,#ff8fab,#ffc2d1,#ffe5ec);
+    background-size:400% 400%;
+    animation:bg 12s ease infinite;
+}
+
+@keyframes bg{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+}
+
+.card{
+    width:90%;
+    max-width:650px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(15px);
+    border-radius:30px;
+    padding:40px;
+    text-align:center;
+    box-shadow:0 10px 40px rgba(0,0,0,.15);
+}
+
+h1{
+    color:white;
+    margin-bottom:20px;
+}
+
+h2{
+    color:white;
+    margin:25px 0;
+}
+
+p{
+    color:white;
+    line-height:2;
+    font-size:18px;
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:15px;
+    margin-top:25px;
+}
+
+.btn{
+    border:none;
+    border-radius:50px;
+    padding:15px 35px;
+    font-size:20px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+#yes{
+    background:white;
+    color:#ff3d81;
+    font-weight:bold;
+}
+
+#yes:hover{
+    transform:scale(1.08);
+}
+
+#no{
+    background:#ff4f84;
+    color:white;
+    position:relative;
+}
+
+.telegram-btn{
+    display:inline-block;
+    margin-top:25px;
+    background:white;
+    color:#ff3d81;
+    text-decoration:none;
+    padding:15px 30px;
+    border-radius:50px;
+    font-weight:bold;
+}
+
+.heart{
+    position:absolute;
+    pointer-events:none;
+    animation:float linear infinite;
+}
+
+@keyframes float{
+    from{
+        transform:translateY(100vh);
+        opacity:1;
+    }
+    to{
+        transform:translateY(-150px);
+        opacity:0;
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<h1>💖 انوشه عزیز 💖</h1>
+
+<p>
+از بین تمام آدم‌هایی که در زندگی دیده‌ام،
+بودن تو برای من حس متفاوتی داشته...
+<br><br>
+و حالا فقط یک سؤال دارم:
+</p>
+
+<h2>❤️ آیا با من وارد رابطه می‌شی؟ ❤️</h2>
+
+<div class="buttons">
+
+<button id="yes" class="btn">
+بله ❤️
+</button>
+
+<button id="no" class="btn">
+خیر 😅
+</button>
+
+</div>
+
+</div>
+
+<script>
+
+const yesBtn = document.getElementById("yes");
+const noBtn = document.getElementById("no");
+
+let scale = 1;
+
+const excuses = [
+"مطمئنی؟ 🥺",
+"یه بار دیگه فکر کن ❤️",
+"انوشه جان نه نگو 😭",
+"این گزینه خراب شده 😂",
+"بیا همون بله رو بزن 😍",
+"قول میدم پشیمون نشی 💖",
+"من خوبم ها 😎",
+"این دکمه کار نمیکنه 🤭"
+];
+
+noBtn.addEventListener("mouseover",()=>{
+
+    noBtn.style.position="absolute";
+
+    scale += 0.08;
+
+    yesBtn.style.transform =
+    `scale(${scale})`;
+
+    noBtn.innerText =
+    excuses[Math.floor(Math.random()*excuses.length)];
+
+    const x =
+    Math.random()*(window.innerWidth-220);
+
+    const y =
+    Math.random()*(window.innerHeight-100);
+
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+});
+
+yesBtn.onclick = ()=>{
+
+    noBtn.style.opacity="0";
+
+    setTimeout(()=>{
+        noBtn.remove();
+    },400);
+
+    document.querySelector(".card").innerHTML = `
+
+    <h1>✨❤️✨</h1>
+
+    <p style="font-size:22px">
+
+    انوشه عزیز...
+
+    <br><br>
+
+    نمی‌دونی چقدر خوشحالم که این لحظه رو می‌بینم.
+
+    <br><br>
+
+    قول نمی‌دم همه‌چیز همیشه بی‌نقص باشه،
+    اما قول می‌دم همیشه صادق باشم،
+    هواتو داشته باشم
+    و برای خوشحالیت تلاش کنم.
+
+    <br><br>
+
+    امیدوارم از امروز
+    بتونیم کنار هم
+    کلی خاطره قشنگ بسازیم ❤️
+
+    <br><br>
+
+    ممنونم که به من فرصت دادی 💖
+
+    </p>
+
+    <a
+    class="telegram-btn"
+    href="https://t.me/YOUR_TELEGRAM_USERNAME">
+
+    💌 ارسال پیام به امیر
+
+    </a>
+
+    `;
+
+    for(let i=0;i<180;i++){
+
+        const heart =
+        document.createElement("div");
+
+        heart.className="heart";
+
+        heart.innerHTML=
+        ["❤️","💖","💕","💘","💗"]
+        [Math.floor(Math.random()*5)];
+
+        heart.style.left=
+        Math.random()*100+"vw";
+
+        heart.style.fontSize=
+        (15+Math.random()*35)+"px";
+
+        heart.style.animationDuration=
+        (3+Math.random()*5)+"s";
+
+        document.body.appendChild(heart);
+    }
+
+    setTimeout(()=>{
+        window.location.href=
+        "https://t.me/LazyLesb";
+    },70000);
+
+};
+
+for(let i=0;i<40;i++){
+
+    const heart =
+    document.createElement("div");
+
+    heart.className="heart";
+
+    heart.innerHTML="❤️";
+
+    heart.style.left=
+    Math.random()*100+"vw";
+
+    heart.style.fontSize=
+    (10+Math.random()*20)+"px";
+
+    heart.style.animationDuration=
+    (5+Math.random()*6)+"s";
+
+    document.body.appendChild(heart);
+}
+
+</script>
+
+</body>
+</html>
